@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import io.mmaltsev.vkeducation.R
+import com.android.vkeducation.baskaeva.R
 import com.android.vkeducation.baskaeva.presentation.theme.VkEducationTheme
 
 @Composable

@@ -12,11 +12,11 @@ plugins {
 }
 
 android {
-    namespace = "io.mmaltsev.vkeducation"
+    namespace = "com.android.vkeducation.baskaeva"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "io.mmaltsev.vkeducation"
+        applicationId = "com.android.vkeducation.baskaeva"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -92,4 +92,5 @@ dependencies {
     implementation("androidx.room:room-runtime:2.8.3")
     kapt("androidx.room:room-compiler:2.5.0")
     implementation("androidx.room:room-ktx:2.8.3")
+
 }

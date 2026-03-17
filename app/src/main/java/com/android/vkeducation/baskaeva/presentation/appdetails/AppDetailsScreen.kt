@@ -16,7 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import io.mmaltsev.vkeducation.R
+import com.android.vkeducation.baskaeva.R
 import kotlinx.coroutines.flow.Flow
 
 @Composable
