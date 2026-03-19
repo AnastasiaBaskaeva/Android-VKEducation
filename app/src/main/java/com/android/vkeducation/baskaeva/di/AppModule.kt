@@ -13,8 +13,12 @@ import com.android.vkeducation.baskaeva.data.appdetails.AppDetailsRepositoryImpl
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDatabase
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsDao
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsEntityMapper
+import com.android.vkeducation.baskaeva.data.applist.AppListMapper
+import com.android.vkeducation.baskaeva.data.applist.AppListRepositoryImpl
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetailsRepository
 import com.android.vkeducation.baskaeva.domain.appdetails.GetAppDetailsUseCase
+import com.android.vkeducation.baskaeva.domain.applist.AppListRepository
+import com.android.vkeducation.baskaeva.domain.applist.GetAppListUseCase
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
@@ -90,4 +94,22 @@ object AppModule {
     ): AppDetailsRepository {
         return AppDetailsRepositoryImpl(api, dao, mapper, entityMapper)
     }
+
+
+    @Provides
+    @Singleton
+    fun provideAppListMapper(): AppListMapper = AppListMapper()
+
+
+    @Provides
+    @Singleton
+    fun provideAppListRepository(mapper: AppListMapper) : AppListRepository =
+        AppListRepositoryImpl(mapper)
+
+
+    @Provides
+    @Singleton
+    fun provideGetAppListUseCase(repository: AppListRepository): GetAppListUseCase =
+        GetAppListUseCase(repository)
+
 }

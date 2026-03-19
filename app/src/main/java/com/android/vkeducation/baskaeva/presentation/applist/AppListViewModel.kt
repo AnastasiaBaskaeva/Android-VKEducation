@@ -1,23 +1,42 @@
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.vkeducation.baskaeva.domain.applist.GetAppListUseCase
 import com.android.vkeducation.baskaeva.presentation.applist.AppListEvent
 import com.android.vkeducation.baskaeva.presentation.applist.AppListState
-import com.android.vkeducation.baskaeva.presentation.applist.hardcodedAppList
+import jakarta.inject.Inject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
-class AppListViewModel : ViewModel() {
+class AppListViewModel @Inject constructor(
+    private val getAppListUseCase: GetAppListUseCase
+) : ViewModel() {
 
     private val _state = MutableStateFlow(
-        AppListState(apps = hardcodedAppList)
+        AppListState()
     )
     val state: StateFlow<AppListState> = _state
 
     private val _events = Channel<AppListEvent>()
     val events = _events.receiveAsFlow()
+
+    init{
+        loadAppList()
+    }
+
+    private fun loadAppList(){
+        viewModelScope.launch {
+            _state.value = _state.value.copy(isLoading = true, error = null)
+            try{
+                val apps = getAppListUseCase()
+                _state.value = _state.value.copy(apps = apps, isLoading = false)
+            } catch (e: Exception) {
+                _state.value = _state.value.copy(isLoading = false, error = e.message)
+            }
+        }
+    }
 
     fun onLogoClick() {
         viewModelScope.launch {

@@ -21,10 +21,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.android.vkeducation.baskaeva.domain.applist.AppListItem
 
 @Composable
 fun AppListItem(
-    app: AppListEntry,
+    app: AppListItem,
     onClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -40,7 +41,7 @@ fun AppListItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AsyncImage(
-            model = app.iconUrl,
+            model = app.icon,
             contentDescription = app.name,
             contentScale = ContentScale.Crop,
             modifier = Modifier
