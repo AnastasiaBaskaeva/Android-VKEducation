@@ -4,64 +4,74 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-enum class Category {
+enum class Category(val categoryText: String) {
     @SerialName("Приложения")
-    APP,
+    APP("Приложения"),
 
-    @SerialName("Игры")
-    GAME,
-
-    @SerialName("Производительность")
-    PRODUCTIVITY,
-
-    @SerialName("Социальные сети")
-    SOCIAL,
-
-    @SerialName("Образование")
-    EDUCATION,
-
-    @SerialName("Развлечения")
-    ENTERTAINMENT,
-
-    @SerialName("Музыка")
-    MUSIC,
 
     @SerialName("Видео")
-    VIDEO,
-
-    @SerialName("Фотография")
-    PHOTOGRAPHY,
-
-    @SerialName("Здоровье")
-    HEALTH,
+    VIDEO("Видео"),
 
     @SerialName("Спорт")
-    SPORTS,
+    SPORTS("Спорт"),
 
-    @SerialName("Новости")
-    NEWS,
-
-    @SerialName("Книги")
-    BOOKS,
-
-    @SerialName("Бизнес")
-    BUSINESS,
-
-    @SerialName("Финансы")
-    FINANCE,
 
     @SerialName("Путешествия")
-    TRAVEL,
+    TRAVEL("Путешествия"),
 
-    @SerialName("Карты")
-    MAPS,
 
-    @SerialName("Еда")
-    FOOD,
 
-    @SerialName("Покупки")
-    SHOPPING,
+    @SerialName("Производительность")
+    PRODUCTIVITY("Производительность"),
+
+    @SerialName("Здоровье и фитнес")
+    HEALTH("Здоровье и фитнес"),
+
+    @SerialName("Фото и видео")
+    PHOTOGRAPHY("Фото и видео"),
+
+    @SerialName("Еда и напитки")
+    FOOD("Еда и напитки"),
+
+    @SerialName("Образование")
+    EDUCATION("Образование"),
+
+    @SerialName("Образ жизни")
+    LIFESTYLE("Образ жизни"),
+
+    @SerialName("Шопинг")
+    SHOPPING("Шопинг"),
+
+    @SerialName("Новости")
+    NEWS("Новости"),
+
+    @SerialName("Музыка")
+    MUSIC("Музыка"),
+
+    @SerialName("Игры")
+    GAME("Игры"),
+
+    @SerialName("Финансы")
+    FINANCE("Финансы"),
 
     @SerialName("Утилиты")
-    UTILITIES
+    UTILITIES("Утилиты"),
+
+    @SerialName("Общение")
+    SOCIAL("Общение"),
+
+    @SerialName("Бизнес")
+    BUSINESS("Бизнес"),
+
+    @SerialName("Навигация")
+    MAPS("Навигация"),
+
+    @SerialName("Погода")
+    WEATHER("Погода"),
+
+    @SerialName("Развлечения")
+    ENTERTAINMENT("Развлечения"),
+
+    @SerialName("Книги и справочники")
+    BOOKS("Книги и справочники"),
 }

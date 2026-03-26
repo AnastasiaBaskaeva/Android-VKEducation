@@ -1,5 +1,6 @@
 package com.android.vkeducation.baskaeva.data.appdetails
 
+import com.android.vkeducation.baskaeva.data.AppApi
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsDao
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsEntityMapper
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetails

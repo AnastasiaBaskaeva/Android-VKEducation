@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class AppListItemDto(
     val id: String,
     val name: String,
-    val subtitle: String,
+    val description: String,
     val category: String,
     @SerialName("iconUrl") val icon: String
 )

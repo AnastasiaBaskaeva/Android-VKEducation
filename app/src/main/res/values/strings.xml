@@ -20,4 +20,9 @@
 
     <string name="app_details_error">Произошла непредвиденная ошибка</string>
     <string name="app_details_error_refresh">Перезагрузить</string>
+
+    <string name="app_logo">RuStore</string>
+    <string name="grid">Сетка</string>
+
+
 </resources>
