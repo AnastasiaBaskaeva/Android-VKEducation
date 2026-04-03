@@ -2,7 +2,8 @@ package com.android.vkeducation.baskaeva.data.applist
 
 import com.android.vkeducation.baskaeva.domain.applist.AppListItem
 import com.android.vkeducation.baskaeva.domain.applist.AppListRepository
-import jakarta.inject.Inject
+import javax.inject.Inject
+
 
 class AppListRepositoryImpl @Inject constructor(
     private val mapper: AppListMapper

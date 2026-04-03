@@ -101,10 +101,12 @@ object AppModule {
     fun provideAppListMapper(): AppListMapper = AppListMapper()
 
 
+
     @Provides
     @Singleton
-    fun provideAppListRepository(mapper: AppListMapper) : AppListRepository =
-        AppListRepositoryImpl(mapper)
+    fun provideAppListRepository(
+        mapper: AppListMapper
+    ): AppListRepository = AppListRepositoryImpl(mapper = mapper)
 
 
     @Provides

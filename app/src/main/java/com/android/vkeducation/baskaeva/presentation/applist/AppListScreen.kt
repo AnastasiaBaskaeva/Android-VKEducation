@@ -1,6 +1,6 @@
 package com.android.vkeducation.baskaeva.presentation.applist
 
-import AppListViewModel
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
