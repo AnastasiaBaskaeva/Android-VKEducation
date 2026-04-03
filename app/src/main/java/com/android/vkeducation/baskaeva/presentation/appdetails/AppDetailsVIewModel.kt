@@ -54,14 +54,15 @@ class AppDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = AppDetailsState.Loading
 
-            getAppDetailsUseCase(appId).catch { e ->
-                _state.value = AppDetailsState.Error
-                Log.d("HOHOHO", "ERROR $e")
-            }.collect { appDetails ->
+            try {
+                val appDetails = getAppDetailsUseCase(appId)
                 _state.value = AppDetailsState.Content(
                     appDetails = appDetails,
                     descriptionCollapsed = false
                 )
+            } catch (e: Exception) {
+                _state.value = AppDetailsState.Error
+                Log.d("HOHOHO", "ERROR $e")
             }
         }
     }

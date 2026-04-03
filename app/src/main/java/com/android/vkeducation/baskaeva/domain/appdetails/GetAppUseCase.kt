@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 class GetAppDetailsUseCase(
     private val appDetailsRepository: AppDetailsRepository,
 ) {
-    suspend operator fun invoke(id: String): Flow<AppDetails> =
+    suspend operator fun invoke(id: String): AppDetails =
         appDetailsRepository.getAppDetails(id)
 }
