@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import io.mmaltsev.vkeducation.R
+import com.android.vkeducation.baskaeva.R
 import com.android.vkeducation.baskaeva.presentation.theme.VkEducationTheme
 
 @Composable

@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import io.mmaltsev.vkeducation.R
+import com.android.vkeducation.baskaeva.R
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetails
 import com.android.vkeducation.baskaeva.domain.appdetails.Category
 import com.android.vkeducation.baskaeva.presentation.theme.VkEducationTheme

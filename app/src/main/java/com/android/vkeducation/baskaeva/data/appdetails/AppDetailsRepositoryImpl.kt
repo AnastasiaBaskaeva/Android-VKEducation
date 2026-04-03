@@ -1,7 +1,7 @@
 package com.android.vkeducation.baskaeva.data.appdetails
 
-import io.mmaltsev.vkeducation.data.appdetails.local.AppDetailsDao
-import io.mmaltsev.vkeducation.data.appdetails.local.AppDetailsEntityMapper
+import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsDao
+import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsEntityMapper
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetails
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetailsRepository
 import kotlinx.coroutines.Dispatchers

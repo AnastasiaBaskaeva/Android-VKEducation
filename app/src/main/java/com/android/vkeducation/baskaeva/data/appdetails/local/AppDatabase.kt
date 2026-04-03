@@ -3,9 +3,6 @@ package com.android.vkeducation.baskaeva.data.appdetails.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import io.mmaltsev.vkeducation.data.appdetails.local.AppDetailsDao
-import io.mmaltsev.vkeducation.data.appdetails.local.AppDetailsEntity
-import io.mmaltsev.vkeducation.data.appdetails.local.CategoryConverter
 
 @Database(
     entities = [AppDetailsEntity::class],

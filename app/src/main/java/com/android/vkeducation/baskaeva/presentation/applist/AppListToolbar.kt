@@ -1,6 +1,7 @@
 package com.android.vkeducation.baskaeva.presentation.applist
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,12 +21,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.mmaltsev.vkeducation.R
+import com.android.vkeducation.baskaeva.R
 
 private val RuStoreBlue = Color(0xFF4577D4)
 
 @Composable
-fun AppListToolbar(modifier: Modifier = Modifier) {
+fun AppListToolbar(
+    onLogoClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -36,12 +40,13 @@ fun AppListToolbar(modifier: Modifier = Modifier) {
     ) {
         Icon(
             painter = painterResource(R.drawable.rustore_icon),
-            contentDescription = null,
+            contentDescription = "Логотип RuStore",
             tint = Color.White,
             modifier = Modifier
                 .size(36.dp)
                 .clip(RoundedCornerShape(8.dp))
                 .background(Color.White.copy(alpha = 0.2f))
+                .clickable { onLogoClick() }
                 .padding(4.dp),
         )
         Spacer(Modifier.width(12.dp))

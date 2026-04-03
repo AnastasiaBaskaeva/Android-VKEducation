@@ -11,8 +11,8 @@ import com.android.vkeducation.baskaeva.data.appdetails.AppApi
 import com.android.vkeducation.baskaeva.data.appdetails.AppDetailsMapper
 import com.android.vkeducation.baskaeva.data.appdetails.AppDetailsRepositoryImpl
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDatabase
-import io.mmaltsev.vkeducation.data.appdetails.local.AppDetailsDao
-import io.mmaltsev.vkeducation.data.appdetails.local.AppDetailsEntityMapper
+import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsDao
+import com.android.vkeducation.baskaeva.data.appdetails.local.AppDetailsEntityMapper
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetailsRepository
 import com.android.vkeducation.baskaeva.domain.appdetails.GetAppDetailsUseCase
 import kotlinx.serialization.json.Json

@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation.data.appdetails.local
+package com.android.vkeducation.baskaeva.data.appdetails.local
 
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetails
 
