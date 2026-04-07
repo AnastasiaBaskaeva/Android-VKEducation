@@ -45,17 +45,15 @@ fun AppDetailsScreen(
                 AppDetailsLoading(
                     modifier = Modifier
                         .fillMaxSize()
-//                        .safeDrawingPadding()
                         .padding(contentPadding),
                 )
             }
 
             is AppDetailsState.Error -> {
                 AppDetailsError(
-                    onRefreshClick = { viewModel.getAppDetails() },
+                    onRefreshClick = { viewModel.loadAppDetails() },
                     modifier = Modifier
                         .fillMaxSize()
-//                        .safeDrawingPadding()
                         .padding(contentPadding),
                 )
             }
@@ -68,12 +66,11 @@ fun AppDetailsScreen(
                     onInstallClick = { viewModel.showUnderDevelopmentMessage() },
                     onReadMoreClick = { viewModel.collapseDescription() },
                     onDeveloperClick = { viewModel.showUnderDevelopmentMessage() },
+                    onWishListClick = {viewModel.toggleWishlist()},
                     modifier = Modifier
                         .fillMaxSize()
-//                        .safeDrawingPadding()
                         .padding(contentPadding),
                 )
-
             }
         }
     }

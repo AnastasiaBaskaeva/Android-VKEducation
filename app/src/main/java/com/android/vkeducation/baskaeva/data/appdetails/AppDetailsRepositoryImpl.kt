@@ -43,7 +43,9 @@ class AppDetailsRepositoryImpl @Inject constructor(
     override suspend fun toggleWishlist(id: String) {
         val currentEntity = dao.getAppDetails(id).first()
         currentEntity?.let {
-            dao.updateWishlistStatus(id, !it.isInWishlist)
+            withContext(Dispatchers.IO) {
+                dao.updateWishlistStatus(id, !it.isInWishlist)
+            }
         }
     }
 }
