@@ -25,6 +25,8 @@ fun AppDetailsContent(
     onInstallClick: () -> Unit,
     onReadMoreClick: () -> Unit,
     onDeveloperClick: () -> Unit,
+    onWishListClick: () -> Unit,
+    isInWishList: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val appDetails = content.appDetails
@@ -35,6 +37,8 @@ fun AppDetailsContent(
             Toolbar(
                 onBackClick = onBackClick,
                 onShareClick = onShareClick,
+                onWishlistClick = onWishListClick,
+                isInWishlist = isInWishList,
             )
         }
         item {
@@ -119,6 +123,8 @@ private fun Preview() {
             onShareClick = {},
             onInstallClick = {},
             onDeveloperClick = {},
+            onWishListClick = {},
+            isInWishList = true,
             modifier = Modifier.fillMaxSize(),
         )
     }
