@@ -8,12 +8,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface AppDetailsDao {
+
     @Query("SELECT * FROM app_details WHERE id = :id")
-    fun getAppDetails(id: String): Flow<AppDetailsEntity?>
+    fun getAppDetails(id: String): Flow<AppDetailsEntity?>   // ← убедись, что параметр называется именно id
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAppDetails(appDetails: AppDetailsEntity)
-
-//    @Query("DELETE FROM app_details WHERE id = :id")
-//    suspend fun deleteAppDetails(id: String)
 }

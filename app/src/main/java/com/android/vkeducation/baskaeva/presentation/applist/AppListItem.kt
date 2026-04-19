@@ -59,7 +59,7 @@ fun AppListItem(
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                text = app.subtitle,
+                text = app.description,
                 style = MaterialTheme.typography.bodyMedium,
                 color = subtextColor,
                 maxLines = 1,

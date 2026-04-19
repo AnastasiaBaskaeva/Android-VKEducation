@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.android.vkeducation.baskaeva.data.appdetails.AppApi
+import com.android.vkeducation.baskaeva.data.AppApi
 import com.android.vkeducation.baskaeva.data.appdetails.AppDetailsMapper
 import com.android.vkeducation.baskaeva.data.appdetails.AppDetailsRepositoryImpl
 import com.android.vkeducation.baskaeva.data.appdetails.local.AppDatabase
@@ -105,8 +105,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAppListRepository(
+        appApi: AppApi,
         mapper: AppListMapper
-    ): AppListRepository = AppListRepositoryImpl(mapper = mapper)
+    ): AppListRepository = AppListRepositoryImpl(appApi, mapper)
 
 
     @Provides

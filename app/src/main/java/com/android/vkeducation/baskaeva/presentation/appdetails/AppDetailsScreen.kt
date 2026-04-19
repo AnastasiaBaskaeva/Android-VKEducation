@@ -1,6 +1,7 @@
 package com.android.vkeducation.baskaeva.presentation.appdetails
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
@@ -37,13 +38,14 @@ fun AppDetailsScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         modifier = Modifier.background(MaterialTheme.colorScheme.surface),
+        contentWindowInsets = WindowInsets(0),
     ) { contentPadding ->
         when (val currentState = state) {
             is AppDetailsState.Loading -> {
                 AppDetailsLoading(
                     modifier = Modifier
                         .fillMaxSize()
-                        .safeDrawingPadding()
+//                        .safeDrawingPadding()
                         .padding(contentPadding),
                 )
             }
@@ -53,7 +55,7 @@ fun AppDetailsScreen(
                     onRefreshClick = { viewModel.getAppDetails() },
                     modifier = Modifier
                         .fillMaxSize()
-                        .safeDrawingPadding()
+//                        .safeDrawingPadding()
                         .padding(contentPadding),
                 )
             }
@@ -68,7 +70,7 @@ fun AppDetailsScreen(
                     onDeveloperClick = { viewModel.showUnderDevelopmentMessage() },
                     modifier = Modifier
                         .fillMaxSize()
-                        .safeDrawingPadding()
+//                        .safeDrawingPadding()
                         .padding(contentPadding),
                 )
 

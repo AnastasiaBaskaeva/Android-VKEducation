@@ -3,8 +3,6 @@ package com.android.vkeducation.baskaeva.presentation.applist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.vkeducation.baskaeva.domain.applist.GetAppListUseCase
-import com.android.vkeducation.baskaeva.presentation.applist.AppListEvent
-import com.android.vkeducation.baskaeva.presentation.applist.AppListState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
