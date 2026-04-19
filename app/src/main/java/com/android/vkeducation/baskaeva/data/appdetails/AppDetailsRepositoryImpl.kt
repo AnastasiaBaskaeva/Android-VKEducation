@@ -7,6 +7,7 @@ import com.android.vkeducation.baskaeva.domain.appdetails.AppDetails
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetailsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
@@ -30,6 +31,21 @@ class AppDetailsRepositoryImpl @Inject constructor(
                 dao.insertAppDetails(entityMapper.toEntity(domain))
             }
             domain
+        }
+    }
+
+    override fun observeAppDetails(id: String): Flow<AppDetails> {
+        return dao.getAppDetails(id)
+            .filterNotNull()
+            .map { entityMapper.toDomain(it) }
+    }
+
+    override suspend fun toggleWishlist(id: String) {
+        val currentEntity = dao.getAppDetails(id).first()
+        currentEntity?.let {
+            withContext(Dispatchers.IO) {
+                dao.updateWishlistStatus(id, !it.isInWishlist)
+            }
         }
     }
 }

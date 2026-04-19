@@ -31,7 +31,42 @@ class AppDetailsViewModel @Inject constructor(
     val events = _events.receiveAsFlow()
 
     init {
-        getAppDetails()
+        loadAppDetails()
+        observeAppDetails()
+    }
+
+    fun loadAppDetails() {
+        viewModelScope.launch {
+            _state.value = AppDetailsState.Loading
+            try {
+                getAppDetailsUseCase(appId)
+                // стейт не обновляем — это сделает observeAppDetails()
+            } catch (e: Exception) {
+                _state.value = AppDetailsState.Error
+                Log.d("HOHOHO", "ERROR $e")
+            }
+        }
+    }
+
+    // Подписка на поток из БД — обновляет UI при любом изменении
+    private fun observeAppDetails() {
+        viewModelScope.launch {
+            getAppDetailsUseCase.observe(appId)
+                .catch { _state.value = AppDetailsState.Error }
+                .collect { appDetails ->
+                    _state.value = AppDetailsState.Content(
+                        appDetails = appDetails,
+                        descriptionCollapsed = false,
+                    )
+                }
+        }
+    }
+
+    fun toggleWishlist() {
+        viewModelScope.launch {
+            getAppDetailsUseCase.toggleWishlist(appId)
+            // стейт не трогаем — Flow из БД сам обновит UI
+        }
     }
 
     fun showUnderDevelopmentMessage() {
@@ -44,26 +79,7 @@ class AppDetailsViewModel @Inject constructor(
         _state.update { currentState ->
             if (currentState is AppDetailsState.Content) {
                 currentState.copy(descriptionCollapsed = true)
-            } else {
-                currentState
-            }
-        }
-    }
-
-    fun getAppDetails() {
-        viewModelScope.launch {
-            _state.value = AppDetailsState.Loading
-
-            try {
-                val appDetails = getAppDetailsUseCase(appId)
-                _state.value = AppDetailsState.Content(
-                    appDetails = appDetails,
-                    descriptionCollapsed = false
-                )
-            } catch (e: Exception) {
-                _state.value = AppDetailsState.Error
-                Log.d("HOHOHO", "ERROR $e")
-            }
+            } else currentState
         }
     }
 }

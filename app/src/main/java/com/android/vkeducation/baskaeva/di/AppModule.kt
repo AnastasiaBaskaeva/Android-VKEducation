@@ -60,10 +60,11 @@ object AppModule {
     @Singleton
     fun provideDatabase(app: Application): AppDatabase {
         return Room.databaseBuilder(
-            app,
-            AppDatabase::class.java,
-            AppDatabase.DATABASE_NAME
-        ).build()
+                app,
+                AppDatabase::class.java,
+                AppDatabase.DATABASE_NAME
+            ).fallbackToDestructiveMigration(false)
+            .build()
     }
 
     @Provides
