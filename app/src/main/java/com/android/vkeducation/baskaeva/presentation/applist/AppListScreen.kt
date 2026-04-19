@@ -1,6 +1,6 @@
 package com.android.vkeducation.baskaeva.presentation.applist
 
-import AppListViewModel
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,12 +13,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun AppListScreen(
     onAppClick: (String) -> Unit,
-    viewModel: AppListViewModel = viewModel()
+    viewModel: AppListViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.collectAsState()
 
