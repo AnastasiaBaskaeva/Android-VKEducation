@@ -1,5 +1,6 @@
 package com.android.vkeducation.baskaeva.data.appdetails.local
 
+
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters

@@ -7,6 +7,7 @@ import com.android.vkeducation.baskaeva.domain.appdetails.AppDetails
 import com.android.vkeducation.baskaeva.domain.appdetails.AppDetailsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -18,19 +19,17 @@ class AppDetailsRepositoryImpl @Inject constructor(
     private val entityMapper: AppDetailsEntityMapper,
 )  : AppDetailsRepository {
 
-    override suspend fun getAppDetails(id: String): Flow<AppDetails> {
-        return dao.getAppDetails(id).map { entity ->
-            if (entity != null) {
-                entityMapper.toDomain(entity)
-            } else {
-                val dto = appApi.getAppDetails(id)
-                val domain = mapper.toDomain(dto)
-                val entity = entityMapper.toEntity(domain)
-                withContext(Dispatchers.IO) {
-                    dao.insertAppDetails(entity)
-                }
-                domain
+    override suspend fun getAppDetails(id: String): AppDetails {
+        val entity = dao.getAppDetails(id).first()
+        return if (entity != null) {
+            entityMapper.toDomain(entity)
+        } else {
+            val dto = appApi.getAppDetails(id)
+            val domain = mapper.toDomain(dto)
+            withContext(Dispatchers.IO) {
+                dao.insertAppDetails(entityMapper.toEntity(domain))
             }
+            domain
         }
     }
 }
